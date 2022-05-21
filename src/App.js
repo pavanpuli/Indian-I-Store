@@ -11,15 +11,28 @@ import LapDisplay from './components/lapDisplay';
 import IpadDisplay from './components/IpadDisplay';
 import Cart from "./components/cart";
 import Checkout from './components/Checkout';
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [log,setLog] = useState(false);
+  useEffect(() => {
+    var a = JSON.parse(localStorage.getItem("app")) || null;
+    if(a){
+      setLog(true)
+    }
+  })
   return (
     <>
-    <Navbar/>
+    <Navbar  setLog={setLog} log={log}/>
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/About' element={<About/>} />
+        
+      <Route path='/Login' element={<Login setLog={setLog}/>} />
+      <Route path='/Signup' element={<Signup/>} />
 
       <Route path='/Product' element={<Product/>} />
       <Route path='/Product/:id' element={<MobileDisplay/>} />

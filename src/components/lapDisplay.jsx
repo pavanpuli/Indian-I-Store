@@ -13,7 +13,7 @@ function LapDisplay() {
     const[cartBtn,setcartBtn]=useState("Add To Cart")
 
     const getData=()=>{
-        axios.get(`https://indianistore.herokuapp.com/laptops/${lap.id}`).then((res)=>{
+        axios.get(`http://localhost:2345/laptops/${lap.id}`).then((res)=>{
             setData(res.data)
             console.log(res.data)
            

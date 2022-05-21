@@ -12,7 +12,7 @@ export const Laptop = () => {
     const [data, setData]=useState([])
     const [filtering,setFiltering]=useState([])
     const getData=()=>{
-        axios.get('https://indianistore.herokuapp.com/laptops').then((res)=>{
+        axios.get('http://localhost:2345/laptops').then((res)=>{
             setData(res.data)
             setFiltering(res.data)
         })
@@ -93,7 +93,7 @@ export const Laptop = () => {
                       <div style={{textAlign:"center",fontSize:"25px"}}>
                         <h5>{e.title}</h5>
                         <p>Price: {e.price}</p>
-                        <Link style={{textDecoration:"none"}} to={`/laptop/${e.id}`}><Button style={{background: 'black',width:"200px",height:"50px"}} variant="contained">Buy Now</Button></Link>
+                        <Link style={{textDecoration:"none"}} to={`/laptop/${e._id}`}><Button style={{background: 'black',width:"200px",height:"50px"}} variant="contained">Buy Now</Button></Link>
                       </div>
                     </div>
                   )

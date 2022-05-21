@@ -14,7 +14,7 @@ function Product() {
   const [data, setData]=useState([])
   const [filtering,setFiltering]=useState([])
   const getData=()=>{
-      axios.get('https://indianistore.herokuapp.com/mobiles').then((res)=>{
+      axios.get('http://localhost:2345/mobiles').then((res)=>{
           setData(res.data)
           setFiltering(res.data)
       })
@@ -98,7 +98,7 @@ function Product() {
                       <div style={{textAlign:"center",fontSize:"25px"}}>
                         <h5>{e.title}</h5>
                         <p>Price: {e.price}</p>
-                        <Link style={{textDecoration:"none"}} to={`/Product/${e.id}`}><Button style={{background: 'black',width:"200px",height:"50px"}} variant="contained">Buy Now</Button></Link>
+                        <Link style={{textDecoration:"none"}} to={`/Product/${e._id}`}><Button style={{background: 'black',width:"200px",height:"50px"}} variant="contained">Buy Now</Button></Link>
                       </div>
                     </div>
                   )
